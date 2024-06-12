@@ -167,7 +167,7 @@ const miloLibs = setLibs(LIBS);
   paths.forEach(loadStyle);
 }());
 
-(async function loadPage() {
+async function loadPage() {
   const { loadArea, loadLana, setConfig, createTag } = await import(`${miloLibs}/utils/utils.js`);
   const metaCta = document.querySelector('meta[name="chat-cta"]');
   if (metaCta && !document.querySelector('.chat-cta')) {
@@ -189,4 +189,11 @@ const miloLibs = setLibs(LIBS);
   if (document.querySelector('.faas')) {
     loadStyle('/styles/faas.css');
   }
+}
+
+loadPage();
+
+(async function loadDa() {
+  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
+  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
 }());
