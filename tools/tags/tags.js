@@ -2,7 +2,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 import './tag-browser.js';
 
 async function getAemRepo(daAdmin, project, opts) {
-  const configUrl = `https://${daAdmin}/config/${project.org}/${project.repo}`;
+  const configUrl = `${daAdmin}/config/${project.org}/${project.repo}`;
   const resp = await fetch(configUrl, opts);
   if (!resp.ok) return null;
   const json = await resp.json();
