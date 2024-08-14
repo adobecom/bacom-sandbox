@@ -2,7 +2,8 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 import './tag-browser.js';
 
 async function getAemRepo(project, opts) {
-  const configUrl = `https://admin.da.live/config/${project.org}/${project.repo}/`;
+  const daEnv = project.env === 'stage' ? 'stage-' : '';
+  const configUrl = `https://${daEnv}admin.da.live/config/${project.org}/${project.repo}`;
   const resp = await fetch(configUrl, opts);
   if (!resp.ok) return null;
   const json = await resp.json();
