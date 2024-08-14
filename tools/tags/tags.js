@@ -1,9 +1,8 @@
 import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 import './tag-browser.js';
 
-async function getAemRepo(project, opts) {
-  const daEnv = project.env === 'stage' ? 'stage-' : '';
-  const configUrl = `https://${daEnv}admin.da.live/config/${project.org}/${project.repo}`;
+async function getAemRepo(daEnv, project, opts) {
+  const configUrl = `https://${daEnv}/config/${project.org}/${project.repo}`;
   const resp = await fetch(configUrl, opts);
   if (!resp.ok) return null;
   const json = await resp.json();
@@ -13,10 +12,10 @@ async function getAemRepo(project, opts) {
 }
 
 (async function init() {
-  const { project, token } = await DA_SDK;
+  const { daEnv, project, token } = await DA_SDK;
   if (!project && !token) return;
   const opts = { headers: { Authorization: `Bearer ${token}` } };
-  const aemRepo = await getAemRepo(project, opts);
+  const aemRepo = await getAemRepo(daEnv, project, opts);
   if (!aemRepo) return;
   const daTagBrowser = document.createElement('da-tag-browser');
   daTagBrowser.aemRepo = aemRepo;
