@@ -12,13 +12,17 @@ async function getAemRepo(daAdmin, project, opts) {
 }
 
 (async function init() {
-  const { daAdmin, project, token } = await DA_SDK;
-  if (!project || !token) return;
-  const opts = { headers: { Authorization: `Bearer ${token}` } };
-  const aemRepo = await getAemRepo(daAdmin, project, opts);
-  if (!aemRepo) return;
-  const daTagBrowser = document.createElement('da-tag-browser');
-  daTagBrowser.aemRepo = aemRepo;
-  daTagBrowser.token = token;
-  document.body.querySelector('main').append(daTagBrowser);
+  const { daAdmin, project, token, sendText } = await DA_SDK;
+
+
+  sendText('Hello World');
+
+  // if (!project || !token) return;
+  // const opts = { headers: { Authorization: `Bearer ${token}` } };
+  // const aemRepo = await getAemRepo(daAdmin, project, opts);
+  // if (!aemRepo) return;
+  // const daTagBrowser = document.createElement('da-tag-browser');
+  // daTagBrowser.aemRepo = aemRepo;
+  // daTagBrowser.token = token;
+  // document.body.querySelector('main').append(daTagBrowser);
 }());
