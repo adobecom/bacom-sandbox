@@ -13,7 +13,7 @@ async function getAemRepo(daAdmin, project, opts) {
 
 (async function init() {
   const { daAdmin, project, token } = await DA_SDK;
-  if (!project && !token) return;
+  if (!project || !token) return;
   const opts = { headers: { Authorization: `Bearer ${token}` } };
   const aemRepo = await getAemRepo(daAdmin, project, opts);
   if (!aemRepo) return;
