@@ -1,4 +1,4 @@
-import DA_SDK from 'http://da.live/nx/utils/sdk.js';
+import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 import './tag-browser.js';
 
 async function getAemRepo(project, opts) {
