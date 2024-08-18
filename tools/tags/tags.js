@@ -12,7 +12,7 @@ async function getAemRepo(daAdmin, project, opts) {
 }
 
 (async function init() {
-  const { daAdmin, project, token, sendText } = await DA_SDK;
+  const { context, token, actions } = await DA_SDK;
 
 
   sendText('Hello World');
