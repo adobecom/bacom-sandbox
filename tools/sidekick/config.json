@@ -137,6 +137,13 @@
       "title": "Bulk operations",
       "environments": [ "edit", "dev", "preview", "live" ],
       "url": "https://main--bacom--adobecom.hlx.page/tools/bulk"
+    },
+    {
+      "id": "da-tags",
+      "title": "Tag Browser",
+      "environments": [],
+      "daLibrary": true,
+      "url": "https://main--bacom-sandbox--adobecom.hlx.live/tools/tags.html"
     }
   ]
 }
