@@ -141,7 +141,7 @@
     {
       "id": "da-tags",
       "title": "Tag Browser",
-      "environments": ['da-edit'],
+      "environments": ["da-edit"],
       "daLibrary": true,
       "url": "https://main--bacom-sandbox--adobecom.hlx.live/tools/tags.html"
     }
