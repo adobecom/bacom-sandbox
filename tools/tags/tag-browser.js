@@ -30,8 +30,8 @@ class DaTagBrowser extends LitElement {
   }
 
   async getTags(path) {
-    const caasPath = path.split('cq:tags').pop().replace('.1.json', '').slice(1);
-    if (caasPath) console.log(caasPath);
+    this.caasPath = path.split('cq:tags').pop().replace('.1.json', '').slice(1);
+    if (this.caasPath) console.log(this.caasPath);
     const opts = { headers: { Authorization: `Bearer ${this.token}` } };
     const resp = await fetch(path, opts);
     if (!resp.ok) return;
@@ -59,7 +59,7 @@ class DaTagBrowser extends LitElement {
   }
 
   handleTagInsert(e, title) {
-    actions.sendText(title);
+    actions.sendText(this.caasPath);
   }
 
   renderTagGroup(group, idx) {
