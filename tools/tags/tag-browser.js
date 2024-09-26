@@ -30,7 +30,7 @@ class DaTagBrowser extends LitElement {
   }
 
   async getTags(path) {
-    console.log(path.split('cq:tags').pop().replace('.1.json'));
+    console.log(path.split('cq:tags').pop().replace('.1.json', ''));
     const opts = { headers: { Authorization: `Bearer ${this.token}` } };
     const resp = await fetch(path, opts);
     if (!resp.ok) return;
